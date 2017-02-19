@@ -77,24 +77,23 @@ public class Logic
      * We provide you this method that way we can test it with unit testing.
      */
     public double calculate(int size, int count) {
-        // TODO -- add your code here
-
-        int i;
-        double percentage = 0.00;
-        boolean sameBirthday = false;
+        boolean sameBirthday;
         int numHits = 0;
 
-        for (i=1; i < count; i++){
+        for (int i=1; i < count; i++){
 
             sameBirthday = simulate(i, size);
             if (sameBirthday){
                 numHits++;
             }
         }
-        return numHits / count * 100.0;
+        return (double) numHits / count * 100.0;
 
     }
 
+    /*
+    This method checks if there is a matching birthday in the group of specified size
+     */
     private boolean simulate(int simNum, int size) {
         Random random =  new Random(simNum);
         List<Integer> birthdays = new ArrayList<>(size);
@@ -102,12 +101,11 @@ public class Logic
         for (int i = 0; i < size; i++){
             int dayNum = random.nextInt(365);
             if (birthdays.contains(dayNum)){
-                return true;
+                return true; //we found a pair of matching birthdays
             }
             birthdays.add(dayNum);
         }
 
-        return false;
+        return false; // we ran the whole simulation and didn't find a pair of matching bdays
     }
-    // TODO - add your code here
 }
