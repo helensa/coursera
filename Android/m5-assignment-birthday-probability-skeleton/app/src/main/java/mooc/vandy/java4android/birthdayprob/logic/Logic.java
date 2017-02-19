@@ -1,5 +1,7 @@
 package mooc.vandy.java4android.birthdayprob.logic;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import mooc.vandy.java4android.birthdayprob.ui.OutputInterface;
@@ -77,6 +79,35 @@ public class Logic
     public double calculate(int size, int count) {
         // TODO -- add your code here
 
+        int i;
+        double percentage = 0.00;
+        boolean sameBirthday = false;
+        int numHits = 0;
+
+        for (i=1; i < count; i++){
+
+            sameBirthday = simulate(i, size);
+            if (sameBirthday){
+                numHits++;
+            }
+        }
+        return numHits / count * 100.0;
+
+    }
+
+    private boolean simulate(int simNum, int size) {
+        Random random =  new Random(simNum);
+        List<Integer> birthdays = new ArrayList<>(size);
+
+        for (int i = 0; i < size; i++){
+            int dayNum = random.nextInt(365);
+            if (birthdays.contains(dayNum)){
+                return true;
+            }
+            birthdays.add(dayNum);
+        }
+
+        return false;
     }
     // TODO - add your code here
 }
