@@ -47,8 +47,8 @@ public class Logic
     public void process(int size) {
 
         // TODO -- add your code here
-        int i = 0;
-        int j = 0;
+        int i;
+        int j;
         int line = 1;
 
         /**
