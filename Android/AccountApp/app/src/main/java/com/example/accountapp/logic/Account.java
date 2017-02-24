@@ -17,28 +17,64 @@ public class Account {
      * This was renamed to 'mOut' from 'out', as it is in the video
      * lessons, to better match Android/Java naming guidelines.
      */
-    final OutputInterface mOut;
-
-    /**
-     * Name of the account holder.
-     */
-    String name;
-
-    /**
-     * Number of the account.
-     */
-    int number;
-
-    /**
-     * Current balance in the account.
-     */
-    double balance;
 
     /**
      * Constructor initializes the field
      */
     public Account(OutputInterface out) {
         mOut = out;
+    }
+
+    //constructor
+    public Account (OutputInterface out, String newName, int newNumber){
+        this(out);
+        name = newName;
+        number = newNumber;
+    }
+
+    public Account(OutputInterface out, String newName, int newNumber, double newAmount){
+        this(out, newName, newNumber);
+        balance = newAmount;
+    }
+
+    private final OutputInterface mOut;
+
+    /**
+     * Name of the account holder.
+     */
+    private String name;
+
+    /**
+     * Number of the account.
+     */
+    private int number;
+
+    /**
+     * Current balance in the account.
+     */
+    private double balance;
+
+    public String getName(){
+        return (name);
+    }
+
+    public int getNumber(){
+        return (number);
+    }
+
+    public double getBalance(){
+        return (balance);
+    }
+
+    public void setName(String nm){
+        name = nm;
+    }
+
+    public void setNumber(int num){
+        number = num;
+    }
+    public void Deposit(double amt){
+        balance = balance + amt;
     }
 
     /**
@@ -59,6 +95,17 @@ public class Account {
             mOut.println("Insufficient Funds");
     }
 
+    public boolean withdrawalHelen(double amount) {
+        if (balance > amount) {
+
+            balance -= amount;
+            return (true);
+        }
+        else {
+            mOut.println("Insufficient Funds");
+            return (false);
+        }
+    }
     /**
      * Display the current @a amount in the account.
      */
