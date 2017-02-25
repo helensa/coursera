@@ -50,7 +50,37 @@ public class HerdManager {
     public void simulateHerd(Random rand){
         int herdSize = HERD;
 
+        for (int i = 0; i < MAX_ITERATIONS; i++){
+            int gateNum = rand.nextInt(2);
+            Gate gate;
+
+            if (gateNum == 0){
+
+            }
+        }
+
     }
+
+    private int oneSimulation (Gate gate, int snailsToMove, int snailsInPen){
+
+        int change = gate.thru(snailsToMove);
+
+        int newSnailsInPen = snailsInPen + change;
+
+        if (newSnailsInPen > HERD || newSnailsInPen < 0 ){  //invalid simulation, no snails moved
+            newSnailsInPen  = snailsInPen;
+        }
+
+        String message
+                = String.format("There are currently %d snails in the pen and %d snails in the pasture",
+                newSnailsInPen, HERD - newSnailsInPen);
+
+        mOut.println(message);
+
+        return newSnailsInPen;
+    }
+
+
     // TODO -- Fill your code in here
 
 
