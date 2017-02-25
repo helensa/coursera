@@ -14,6 +14,7 @@ public class Gate {
         return mSwing;
     }
 
+    //set swing direction to IN, OUT or CLOSED
     public boolean setSwing(int direction) {
         if (direction == IN || direction == OUT || direction == CLOSED) {
             mSwing = direction;
@@ -22,6 +23,7 @@ public class Gate {
             return false;
     }
 
+    //open gate either IN or OUT
     public boolean open(int direction) {
         boolean openable;
 
@@ -34,10 +36,17 @@ public class Gate {
         return openable;
     }
 
+    //close gate
     public void close() {
         setSwing(CLOSED);
     }
 
+    /*
+    return how many snails got through the door
+    negative number means they got out of the pen
+    positive number means they got into the pen
+    zero means the game was closed and no one moved
+     */
     public int thru(int count) {
         int number = 0;
 
@@ -50,12 +59,13 @@ public class Gate {
         }
 
         else if (mSwing == CLOSED){
-            number = CLOSED;
+            number = 0;
         }
 
         return number;
     }
 
+    //override toString
     public String toString(){
         String message;
 
