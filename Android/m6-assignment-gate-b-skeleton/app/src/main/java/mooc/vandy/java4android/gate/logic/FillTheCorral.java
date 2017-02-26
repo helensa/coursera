@@ -26,11 +26,11 @@ public class FillTheCorral {
 
     }
     boolean anyCorralAvailable(Gate[] corral){
-
+        return false; //TODO: temp
     }
 
     public  int corralSnails(Gate[]corral, Random rand){
-
+        return 0; //TODO: temp
     }
     // TODO -- Fill your code in here
 

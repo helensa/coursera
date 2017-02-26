@@ -48,20 +48,41 @@ public class HerdManager {
     }
 
     public void simulateHerd(Random rand){
-        int herdSize = HERD;
+        int snailsInPen = HERD;
+
+        String message
+                = String.format("There are currently %d snails in the pen and %d snails in the pasture",
+                snailsInPen, HERD - snailsInPen);
+        mOut.println(message);
 
         for (int i = 0; i < MAX_ITERATIONS; i++){
-            int gateNum = rand.nextInt(2);
             Gate gate;
-
-            if (gateNum == 0){
-
+            if (snailsInPen == HERD) {
+                gate = mEastGate;
             }
-        }
+            else {
+                boolean gateEast = rand.nextBoolean();
+                if (gateEast) {
+                    gate = mEastGate;
+                }
+                else {
+                    gate = mWestGate;
+                }
+            }
+            int bound;
+            if (gate.equals(mEastGate)) {
+                bound = snailsInPen + 1;
+            }
+            else {
+                bound = HERD - snailsInPen + 1;
+            }
+            int snailsToMove = rand.nextInt(bound);
+            snailsInPen = simulation(gate, snailsToMove, snailsInPen);
+        } //for
 
     }
 
-    private int oneSimulation (Gate gate, int snailsToMove, int snailsInPen){
+    private int simulation(Gate gate, int snailsToMove, int snailsInPen){
 
         int change = gate.thru(snailsToMove);
 

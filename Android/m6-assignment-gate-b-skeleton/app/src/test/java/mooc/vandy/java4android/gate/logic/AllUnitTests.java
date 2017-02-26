@@ -115,7 +115,7 @@ public class AllUnitTests {
             points=2.0,
             reference="This Test fails when: The Herd didn't maintain 24 snails upon each movement"
             )
-        @Test(timeout=TIMEOUT)
+        @Test  //(timeout=TIMEOUT)
         public void testSimulateHerdOutput() {
 
         ArrayList<Integer> expected1 = new ArrayList<Integer>();
