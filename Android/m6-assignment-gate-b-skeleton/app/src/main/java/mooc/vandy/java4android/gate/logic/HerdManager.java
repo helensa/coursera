@@ -60,6 +60,9 @@ public class HerdManager {
             if (snailsInPen == HERD) {
                 gate = mEastGate;
             }
+            else if (snailsInPen == 0) {
+                gate = mWestGate;
+            }
             else {
                 boolean gateEast = rand.nextBoolean();
                 if (gateEast) {
@@ -71,12 +74,12 @@ public class HerdManager {
             }
             int bound;
             if (gate.equals(mEastGate)) {
-                bound = snailsInPen + 1;
+                bound = snailsInPen;
             }
             else {
-                bound = HERD - snailsInPen + 1;
+                bound = HERD - snailsInPen;
             }
-            int snailsToMove = rand.nextInt(bound);
+            int snailsToMove = 1 + rand.nextInt(bound);
             snailsInPen = simulation(gate, snailsToMove, snailsInPen);
         } //for
 
