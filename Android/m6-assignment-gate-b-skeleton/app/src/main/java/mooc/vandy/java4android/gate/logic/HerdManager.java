@@ -47,6 +47,13 @@ public class HerdManager {
         mEastGate.open(Gate.OUT);
     }
 
+    /*
+    method simulateHerd runs ten simulations of picking a gate (west or east) and moving
+    a randomly generated number of snails in or out of that pen;
+    random number generator's bound for generating number of snails to move
+    adjusts depending on which gate is chosen and how many snails are
+    available to move through that gate
+     */
     public void simulateHerd(Random rand){
         int snailsInPen = HERD;
 
@@ -57,14 +64,14 @@ public class HerdManager {
 
         for (int i = 0; i < MAX_ITERATIONS; i++){
             Gate gate;
-            if (snailsInPen == HERD) {
+            if (snailsInPen == HERD) {  //all snails in pen, none in pasture
                 gate = mEastGate;
             }
-            else if (snailsInPen == 0) {
+            else if (snailsInPen == 0) { //all snails in pasture, none in pen
                 gate = mWestGate;
             }
             else {
-                boolean gateEast = rand.nextBoolean();
+                boolean gateEast = rand.nextBoolean();  //snails both in pen and pasture
                 if (gateEast) {
                     gate = mEastGate;
                 }
@@ -85,6 +92,11 @@ public class HerdManager {
 
     }
 
+    /*
+    method simulation attempts to move a given number of snails using
+    method thru() and return the number of snails moved;
+    it prints out the number of snails in pen and in pasture
+     */
     private int simulation(Gate gate, int snailsToMove, int snailsInPen){
 
         int change = gate.thru(snailsToMove);
@@ -103,9 +115,4 @@ public class HerdManager {
 
         return newSnailsInPen;
     }
-
-
-    // TODO -- Fill your code in here
-
-
 }
