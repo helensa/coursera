@@ -48,6 +48,13 @@ public class Building {
         this.lotWidth = lotWidth;
     }
 
+    public int calcBuildingArea(){
+        return length * width;
+    }
+    public int calcLotArea(){
+        return lotLength * lotWidth;
+    }
+
     @Override
     public String toString() {
         return "Building{" +
