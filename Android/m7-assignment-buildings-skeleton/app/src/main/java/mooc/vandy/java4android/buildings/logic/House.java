@@ -29,7 +29,7 @@ public class House extends Building {
 
     public void setOwner(String owner) {
         this.owner = owner;
-    }  //repeats code from constructor
+    }
 
     public boolean hasPool() {
         return pool;
@@ -37,44 +37,41 @@ public class House extends Building {
 
     public void setPool(boolean pool) {
         this.pool = pool;
-    }  //repeats code from constructor
+    }
 
     @Override
     public boolean equals(Object o) {
-        boolean same = false; //mine
+        if (this == o) return true;
+        if (o == null) return false;
 
-        //if (this == o) return true;  //?
-        //if (o == null || getClass() != o.getClass()) return false; //?
+        boolean same = false;
 
         if (o instanceof House) {
             House newHouse = (House) o;
-            return same;
+
+            if (this.pool == newHouse.pool && this.calcBuildingArea() == newHouse.calcBuildingArea()) {
+                same = true;
+            }
         }
 
-        if (this.pool == newHouse.pool && this.calcBuildingArea() == newHouse.calcBuildingArea()) {
-            same = true;
-        }
         return same;
     }
 
     @Override
     public String toString() {
         String myString;
-        int space = calcLotArea() - calcBuildingArea();
-        boolean openSpace = false;
+        boolean openSpace = calcLotArea() > calcBuildingArea();
 
-        if (space > 0){
-            openSpace = true;
-        }
-
-        myString = "Owner: " + owner;
+        myString = "Owner: " + (owner == null ? "n/a" : owner);
 
         if (hasPool()){
             myString = myString + "; has a pool";
         }
-        if (openSpace == true){
+
+        if (openSpace) {
             myString = myString + "; has a big open space";
         }
+
         return myString;
     }
 }

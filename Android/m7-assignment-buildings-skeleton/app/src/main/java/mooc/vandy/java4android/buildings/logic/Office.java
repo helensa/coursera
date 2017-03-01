@@ -10,21 +10,18 @@ public class Office extends Building {
     private static int totalOffices = 0;
 
     public Office(int length, int width, int lotLength, int lotWidth) {
-        super(length, width, lotLength, lotWidth);
-        totalOffices =+1;
+        this (length, width, lotLength, lotWidth, null, 0);
     }
 
     public Office(int length, int width, int lotLength, int lotWidth, String businessName) {
-        super(length, width, lotLength, lotWidth);
-        this.businessName = businessName;
-        totalOffices =+1;
+        this (length, width, lotLength, lotWidth, businessName, 0);
     }
 
     public Office(int length, int width, int lotLength, int lotWidth, String businessName, int parkingSpaces) {
         super(length, width, lotLength, lotWidth);
         this.businessName = businessName;
         this.parkingSpaces = parkingSpaces;
-        totalOffices =+1;
+        totalOffices =+ 1;
     }
 
     public String getBusinessName() {
@@ -43,15 +40,34 @@ public class Office extends Building {
         this.parkingSpaces = parkingSpaces;
     }
 
-    public  String toString(){
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == null) return false;
+        if (o == this) return true;
+
+        boolean same = false;
+
+        if (o instanceof Office){
+            Office newOffice = (Office) o;
+            if (newOffice.calcBuildingArea() == this.calcBuildingArea()
+                    && newOffice.parkingSpaces == this.parkingSpaces){
+                same = true;
+            }
+        }
+        return same;
+    }
+
+    public String toString(){
 
         String myString = "Business: ";
 
         if (businessName == null){
-            myString = myString + " unoccupied";
+            myString = myString + "unoccupied";
         }
-        else
+        else {
             myString = myString + businessName;
+        }
 
         if (parkingSpaces != 0){
             myString = myString + "; has " + parkingSpaces + " parking spaces";

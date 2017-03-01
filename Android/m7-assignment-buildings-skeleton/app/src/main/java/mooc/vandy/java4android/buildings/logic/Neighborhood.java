@@ -16,15 +16,25 @@ public final class Neighborhood {
     }
 
     public static void print (Building[] buildings, String header, OutputInterface out){
+        out.println(header);
+        out.println("----------");
 
+        for (Building building : buildings) {
+            out.println(building.toString());
+        }
+
+        out.println(String.format("Total neighborhood area: %d", calcArea(buildings)));
     }
 
-    public static int calArea (Building[] buildings){
+
+    public static int calcArea (Building[] buildings){
 
         int area = 0;
-        for (int i = 0; i < buildings.length; i++){
-            area = area + buildings[i].calcLotArea();
+
+        for (Building building : buildings) {
+            area += building.calcLotArea();
         }
+
         return area;
     }
 }
