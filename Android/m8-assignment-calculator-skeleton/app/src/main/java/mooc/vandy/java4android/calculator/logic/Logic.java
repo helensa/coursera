@@ -29,6 +29,27 @@ public class Logic
     public void process(int argumentOne,
                         int argumentTwo,
                         int operation){
-        // TODO -- start your code here
+
+        MathOperation mathOperation = null;
+
+        switch (operation) {
+            case 1:
+                mathOperation = new Add();
+                break;
+
+            case 2:
+                mathOperation = new Subtract();
+                break;
+
+            case 3:
+                mathOperation = new Multiply();
+                break;
+
+            case 4:
+                mathOperation = new Divide();
+                break;
+        }
+
+        mOut.print(String.valueOf(mathOperation.execute(argumentOne, argumentTwo)));
     }
 }
