@@ -9,14 +9,23 @@ public class Office extends Building {
     private int parkingSpaces;
     private static int totalOffices = 0;
 
+    /*
+    Constructor, basic
+     */
     public Office(int length, int width, int lotLength, int lotWidth) {
         this (length, width, lotLength, lotWidth, null, 0);
     }
 
+    /*
+    Constructor, with business name
+     */
     public Office(int length, int width, int lotLength, int lotWidth, String businessName) {
         this (length, width, lotLength, lotWidth, businessName, 0);
     }
 
+    /*
+    Constructor, with business name and parking spaces
+     */
     public Office(int length, int width, int lotLength, int lotWidth, String businessName, int parkingSpaces) {
         super(length, width, lotLength, lotWidth);
         this.businessName = businessName;

@@ -7,10 +7,16 @@ public class Cottage extends House {
 
     private boolean secondFloor;
 
+    /*
+    Constructor, basic
+     */
     public Cottage(int dimension, int lotLength, int lotWidth) {
         this(dimension, lotLength, lotWidth, null, false);
     }
 
+    /*
+    Constructor, with second floor parameter
+     */
     public Cottage(int dimension, int lotLength, int lotWidth, String owner, boolean secondFloor) {
         super(dimension, dimension, lotLength, lotWidth, owner);
         this.secondFloor = secondFloor;

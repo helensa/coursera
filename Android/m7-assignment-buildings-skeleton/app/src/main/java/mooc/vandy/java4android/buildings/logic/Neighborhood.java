@@ -15,6 +15,9 @@ public final class Neighborhood {
     private Neighborhood() {
     }
 
+    /*
+    Print all buildings in the array
+     */
     public static void print (Building[] buildings, String header, OutputInterface out){
         out.println(header);
         out.println("----------");

@@ -8,15 +8,23 @@ public class House extends Building {
     private  String owner;
     private boolean pool;
 
-
+    /*
+    Constructor, basic
+     */
     public House(int length, int width, int lotLength, int lotWidth) {
-        this(length, width, lotLength, lotWidth, null);  //why not false at the end?
+        this(length, width, lotLength, lotWidth, null);
     }
 
+    /*
+    Constructor, with owner parameter
+     */
     public House(int length, int width, int lotLength, int lotWidth, String owner){
         this(length, width, lotLength, lotWidth, owner, false);
     }
 
+    /*
+    Constructor, with owner and hasPool parameters
+     */
     public House(int length, int width, int lotLength, int lotWidth, String owner, boolean pool) {
         super(length, width, lotLength, lotWidth);
         this.owner = owner;

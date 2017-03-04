@@ -9,6 +9,9 @@ public class Building {
     private int lotLength;
     private int lotWidth;
 
+    /*
+    Constructor
+     */
     public Building(int length, int width, int lotLength, int lotWidth) {
         this.length = length;
         this.width = width;
@@ -48,9 +51,16 @@ public class Building {
         this.lotWidth = lotWidth;
     }
 
+    /*
+    Calculate building area
+     */
     public int calcBuildingArea(){
         return length * width;
     }
+
+    /*
+    Calculate lot area
+     */
     public int calcLotArea(){
         return lotLength * lotWidth;
     }
