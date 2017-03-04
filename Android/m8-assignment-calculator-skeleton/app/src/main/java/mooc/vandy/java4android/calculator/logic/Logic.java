@@ -50,6 +50,15 @@ public class Logic
                 break;
         }
 
-        mOut.print(String.valueOf(mathOperation.execute(argumentOne, argumentTwo)));
+        int result = mathOperation.execute(argumentOne, argumentTwo);
+
+        if (mathOperation instanceof Divide){
+            Divide divide = (Divide)mathOperation;
+            int remainder = divide.getRemainder();
+            mOut.print(String.format("%d r%d",result, remainder));
+        }
+        else {
+            mOut.print(String.valueOf(result));
+        }
     }
 }

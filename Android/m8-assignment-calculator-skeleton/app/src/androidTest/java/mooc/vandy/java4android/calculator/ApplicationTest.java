@@ -1,4 +1,4 @@
-package mooc.vandy.java4android.accounts;
+package mooc.vandy.java4android.calculator;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
