@@ -31,7 +31,7 @@ public class Logic
                         int operation){
 
         MathOperation mathOperation = null;
-
+        //switch sets mathOperation to the appropriate class
         switch (operation) {
             case 1:
                 mathOperation = new Add();
@@ -52,11 +52,13 @@ public class Logic
 
         int result = mathOperation.execute(argumentOne, argumentTwo);
 
+        //get remainder in case of division; print output
         if (mathOperation instanceof Divide){
             Divide divide = (Divide)mathOperation;
             int remainder = divide.getRemainder();
-            mOut.print(String.format("%d r%d",result, remainder));
+            mOut.print(String.format("%d R: %d",result, remainder));
         }
+        //print output for add, subtract, multiply
         else {
             mOut.print(String.valueOf(result));
         }
