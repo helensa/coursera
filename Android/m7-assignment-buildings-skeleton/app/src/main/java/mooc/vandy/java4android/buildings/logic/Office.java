@@ -30,7 +30,7 @@ public class Office extends Building {
         super(length, width, lotLength, lotWidth);
         this.businessName = businessName;
         this.parkingSpaces = parkingSpaces;
-        totalOffices =+ 1;
+        totalOffices++;
     }
 
     public String getBusinessName() {
